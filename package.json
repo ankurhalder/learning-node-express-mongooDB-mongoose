@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ankurhalder/learning-node-espress-mongoodb-Natours-.git"
+    "url": "git@github.com:ankurhalder/learning-node-express-mongooDB-mongoose.git"
   },
   "author": "Ankur Halder",
   "license": "MIT",
