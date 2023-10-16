@@ -1,6 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
+// we are using middleware to parse the body of the request
 app.use(express.json());
 
 const tours = JSON.parse(
