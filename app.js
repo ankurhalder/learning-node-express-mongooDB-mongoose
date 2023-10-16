@@ -4,6 +4,11 @@ const app = express();
 // we are using middleware to parse the body of the request
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log('Hello By Ankur Halder from the middleware😊');
+  next();
+});
+
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
