@@ -1,9 +1,10 @@
 const fs = require('fs');
 const express = require('express');
 const morgan = require('morgan');
-
-// 1 middleware
 const app = express();
+
+// 1 middlewares
+app.use(morgan('dev'));
 app.use(express.json());
 
 app.use((req, res, next) => {
