@@ -4,12 +4,24 @@ const app = express();
 // we are using middleware to parse the body of the request
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log('Hello By Ankur Halder from the middleware😊');
+  next();
+});
+
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
 const getAllTours = (req, res) => {
+  console.log(req.requestTime);
   res.status(200).json({
     status: 'success',
+    requestedAt: req.requestTime,
     data: {
       tours,
     },
@@ -98,10 +110,6 @@ const deleteTour = (req, res) => {
 
 app.route(`/api/v1/tours`).get(getAllTours).post(createTour);
 
-app.use((req, res, next) => {
-  console.log('Hello By Ankur Halder from the middleware😊');
-  next();
-});
 app
   .route(`/api/v1/tours/:id`)
   .get(getTour)
