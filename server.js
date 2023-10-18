@@ -8,7 +8,7 @@ dotenv.config({
 });
 
 const DB =
-  'mongodb+srv://ankur:<PASSWORD>@natours.vr1povc.mongodb.net/?retryWrites=true&w=majority'.replace(
+  'mongodb+srv://ankur:<PASSWORD>@natours.vr1povc.mongodb.net/natours?retryWrites=true&w=majority'.replace(
     '<PASSWORD>',
     process.env.DATABASE_PASSWORD,
   );
@@ -33,7 +33,20 @@ const tourSchema = new mongoose.Schema({
     required: [true, 'A tour must have a price'],
   },
 });
-const Tour = mongoose.model('Tour', tourSchema);
+const Tour = mongoose.model('tour', tourSchema);
+
+const testTour = new Tour({
+  name: 'The Park Camper',
+  price: 997,
+});
+testTour
+  .save()
+  .then((doc) => {
+    console.log(doc);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 console.log(app.get('env'));
 const port = process.env.PORT || 8000;
