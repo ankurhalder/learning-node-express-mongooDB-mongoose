@@ -1,10 +1,4 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 const Tour = require('../models/tourModel');
-// const tours = JSON.parse(
-//   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`),
-// );
 
 exports.getAllTours = async (req, res) => {
   try {
