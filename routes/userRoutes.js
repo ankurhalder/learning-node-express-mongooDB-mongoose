@@ -1,3 +1,4 @@
+/* eslint-disable import/no-useless-path-segments */
 const express = require('express');
 // const userController = require('./../controllers/userController');
 const {
@@ -7,6 +8,7 @@ const {
   updateUser,
   deleteUser,
 } = require('./../controllers/userController');
+
 const router = express.Router();
 
 router.route(`/`).get(getAllUsers).post(createUser);
