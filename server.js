@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const app = require('./app');
 
 dotenv.config({
   path: './config.env',
 });
+const app = require('./app');
 
 const DB =
   'mongodb+srv://ankur:<PASSWORD>@natours.vr1povc.mongodb.net/natours?retryWrites=true&w=majority'.replace(
