@@ -121,8 +121,19 @@ body {
     from(#7dd56f),
     to(#28b487)
   );
+  .heading-secondary {
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #7dd56f, #28b487);
+    color: transparent;
+    letter-spacing: 0.1rem;
+    line-height: 1.3;
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
   background-image: linear-gradient(to right, #7dd56f, #28b487);
-  -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0.1rem;
   line-height: 1.3;
