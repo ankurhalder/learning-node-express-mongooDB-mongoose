@@ -33,7 +33,6 @@ const tourSchema = new mongoose.Schema({
   priceDiscount: Number,
   summary: {
     type: String,
-    //  trim will remove all the white spaces in the beginning and end of the string
     trim: true,
     required: [true, 'A tour must have a summary'],
   },
@@ -45,12 +44,10 @@ const tourSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A tour must have a cover image'],
   },
-  //  images is an array of strings
   images: [String],
   createdAt: {
     type: Date,
     default: Date.now(),
-    //  select: false will hide the field from the output
     select: false,
   },
   startDates: [Date],
