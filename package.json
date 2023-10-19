@@ -27,7 +27,6 @@
     "eslint-plugin-jsx-a11y": "*",
     "eslint-plugin-node": "*",
     "eslint-plugin-prettier": "*",
-    "eslint-plugin-react": "*",
-    "prettier": "*"
+    "eslint-plugin-react": "*"
   }
 }
