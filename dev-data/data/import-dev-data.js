@@ -1,29 +1,26 @@
-/* eslint-disable no-process-exit */
-/* eslint-disable import/no-useless-path-segments */
-/* eslint-disable no-console */
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Tour = require('./../../models/tourModel');
 
-dotenv.config({
-  path: './config.env',
-});
+dotenv.config({ path: './config.env' });
 
-const DB =
-  'mongodb+srv://ankur:<PASSWORD>@natours.vr1povc.mongodb.net/natours?retryWrites=true&w=majority'.replace(
-    '<PASSWORD>',
-    process.env.DATABASE_PASSWORD,
-  );
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
 
 mongoose
-  .connect(DB)
-  .then(() => console.log('DB connection successful!'))
-  .catch((err) => console.log(err));
+  .connect(DB, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .then(() => console.log('DB connection successful!'));
 
 // READ JSON FILE
 const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-8'),
+  fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-8')
 );
 
 // IMPORT DATA INTO DB

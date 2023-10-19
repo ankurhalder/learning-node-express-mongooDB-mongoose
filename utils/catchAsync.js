@@ -1,6 +1,5 @@
-/* eslint-disable arrow-body-style */
-module.exports = (fn) => {
+module.exports = fn => {
   return (req, res, next) => {
-    fn(req, res, next).catch(next); // next is the error handling middleware
+    fn(req, res, next).catch(next);
   };
 };
